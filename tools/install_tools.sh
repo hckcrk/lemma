@@ -38,9 +38,27 @@ if [ "$arch" == "x86_64" ]; then
     tar -xvf $tmpdir/ffuf.tar.gz -C $tmpdir > /dev/null 2>&1
     mv $tmpdir/ffuf ./app/tools/bin/
 
+    echo "Installing sj..."
+    tmpdir=$(mktemp -d)
+    wget https://github.com/BishopFox/sj/releases/download/1.5.7/sj_Linux_x86_64.tar.gz -O $tmpdir/sj.tar.gz > /dev/null 2>&1
+    tar -xvf $tmpdir/sj.tar.gz -C $tmpdir > /dev/null 2>&1
+    mv $tmpdir/sj ./app/tools/bin/
+
+    # echo "Installing meg..."
+    # tmpdir=$(mktemp -d)
+    # wget https://github.com/tomnomnom/meg/releases/download/v0.3.0/meg-linux-amd64-0.3.0.tgz -O $tmpdir/meg.tgz > /dev/null 2>&1
+    # tar -xvf $tmpdir/meg.tgz -C $tmpdir > /dev/null 2>&1
+    # mv $tmpdir/meg ./app/tools/bin/
+
+    # echo "Installing waybackurls..."
+    # tmpdir=$(mktemp -d)
+    # wget https://github.com/tomnomnom/waybackurls/releases/download/v0.1.0/waybackurls-linux-amd64-0.1.0.tgz -O $tmpdir/waybackurls.tgz > /dev/null 2>&1
+    # tar -xvf $tmpdir/waybackurls.tgz -C $tmpdir > /dev/null 2>&1
+    # mv $tmpdir/waybackurls ./app/tools/bin/
+
     echo "Installing httpx..."
     tmpdir=$(mktemp -d)
-    wget https://github.com/projectdiscovery/httpx/releases/download/v1.6.5/httpx_1.6.5_linux_amd64.zip -O $tmpdir/httpx.zip > /dev/null 2>&1
+    wget https://github.com/projectdiscovery/httpx/releases/download/v1.6.6/httpx_1.6.6_linux_amd64.zip -O $tmpdir/httpx.zip > /dev/null 2>&1
     unzip $tmpdir/httpx.zip -d $tmpdir > /dev/null 2>&1
     mv $tmpdir/httpx ./app/tools
 
@@ -61,6 +79,25 @@ if [ "$arch" == "x86_64" ]; then
     wget https://github.com/projectdiscovery/dnsx/releases/download/v1.2.1/dnsx_1.2.1_linux_amd64.zip -O $tmpdir/dnsx.zip > /dev/null 2>&1
     unzip $tmpdir/dnsx.zip -d $tmpdir > /dev/null 2>&1
     mv $tmpdir/dnsx ./app/tools
+
+    echo "Installing nuclei..."
+    tmpdir=$(mktemp -d)
+    wget https://github.com/projectdiscovery/nuclei/releases/download/v3.3.0/nuclei_3.3.0_linux_amd64.zip -O $tmpdir/nuclei.zip > /dev/null 2>&1
+    unzip $tmpdir/nuclei.zip -d $tmpdir > /dev/null 2>&1
+    mv $tmpdir/nuclei ./app/tools
+
+    echo "Installing naabu..."
+    tmpdir=$(mktemp -d)
+    wget https://github.com/projectdiscovery/naabu/releases/download/v2.3.1/naabu_2.3.1_linux_amd64.zip -O $tmpdir/naabu.zip > /dev/null 2>&1
+    unzip $tmpdir/naabu.zip -d $tmpdir > /dev/null 2>&1
+    mv $tmpdir/naabu ./app/tools
+
+    echo "Installing katana..."
+    tmpdir=$(mktemp -d)
+    wget https://github.com/projectdiscovery/katana/releases/download/v1.1.0/katana_1.1.0_linux_amd64.zip -O $tmpdir/katana.zip > /dev/null 2>&1
+    unzip $tmpdir/katana.zip -d $tmpdir > /dev/null 2>&1
+    mv $tmpdir/katana ./app/tools
+
 
 elif [ "$arch" == "arm64" ]; then
 
